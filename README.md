@@ -1,6 +1,6 @@
 Configure High-availability Groups Using Docker Compose
 =====
-This project provides instructions and tools to use Docker Compose to configure a High-availability (HA) redundancy group of Solace PubSub+ software message broker Docker containers. 
+This project provides instructions and tools to use Docker Compose to configure a High-availability (HA) redundancy group of Solace PubSub+ software message broker Docker containers on a desktop. 
 <br><br>
 
 ## Contents
