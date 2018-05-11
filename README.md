@@ -6,7 +6,7 @@ This project provides instructions and tools to use Docker Compose to configure 
 ## Contents
 
 * [Before you being](#before-you-being)
-  * [What you will need](#prerequisites)
+  * [Assumptions](#prerequisites)
   * [Docker Compose](#docker-compose)
   * [Limitations](#limitations)
 * [Step 1: Get a Software Message Broker](#get-message-broker) 
@@ -20,7 +20,7 @@ This project provides instructions and tools to use Docker Compose to configure 
 In the sample configuration below, we will use the Docker Compose template that is provided in this project, to set up an HA group. This sample configuration, which uses Solace PubSub+ Standard, is suitable for demonstrating and testing PubSub+ fundamentals, such as HA failover and guaranteed messaging, in non-production situations. The intent of the configuration is to help you become familiar with the ins-and-outs of HA set up as a step towards using more advanced, production-oriented configurations. 
 
 <a name="prerequisites"></a>
-### What you will need
+### Assumptions
 
 * If you are using macOS:
   * Mac OS X Yosemite 10.10.3 or higher.
