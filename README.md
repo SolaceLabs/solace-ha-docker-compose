@@ -1,6 +1,6 @@
 Configure High-availability Groups Using Docker Compose
 =====
-This project provides instructions and tools to use Docker Compose to configure a High-availability(HA) redundancy group of Solace PubSub+ software message broker Docker containers. 
+This project provides instructions and tools to use Docker Compose to configure a High-availability (HA) redundancy group of Solace PubSub+ software message broker Docker containers. 
 <br><br>
 ## Before you begin
 In the sample configuration below, we will use the Docker Compose template that is provided in this project, to set up an HA group. This sample configuration, which uses Solace PubSub+ Standard, is suitable for demonstrating and testing PubSub+ fundamentals, such as HA failover and guaranteed messaging, in non-production situations. The intent of the configuration is to help you become familiar with the ins-and-outs of HA set up as a step towards using more advanced, production-oriented configurations. 
@@ -25,7 +25,7 @@ The Docker Compose template allows you to get an HA group up-and-running using a
 
 The template contains the following two files:
 * _PubSub_standard_HA.yml_ — The docker-compose script that creates the containers for the primary, backup, and monitoring nodes as well as a container for the load balancer. The script also contains configuration keys for setting up redundancy, which automatically get the HA group up-and-running.
-* _assertMaster.perl_ — A Perl script that creates the HAProxy load balancer configuration file, which is mapped to the load balancer container. Once the containers are created, the load balancer automatically executes the **Assert master admin operation**, which ensures that the configuration of the primary and backup message brokers are synchronized. For more information, refer to [Solace PubSub+ documentation - Asserting Message Broker System Configurations](https://docs.solace.com/Configuring-and-Managing-Routers/Using-Config-Sync.htm#Assertin).
+* _assertMaster.perl_ — A Perl script that creates the HAProxy load balancer configuration file, which is mapped to the load balancer container. Once the containers are created, the load balancer automatically executes the _Assert master admin operation_, which ensures that the configuration of the primary and backup message brokers are synchronized. For more information, refer to [Solace PubSub+ documentation - Asserting Message Broker System Configurations](https://docs.solace.com/Configuring-and-Managing-Routers/Using-Config-Sync.htm#Assertin).
 
 
 ### Limitations
@@ -95,7 +95,7 @@ You can access the Solace management tool, WebUI, or the Solace CLI to start iss
 Solace WebUI management access:
 
 1. Open a browser and enter this url: http://127.0.0.1:8080
-2. Log in as user `admin` with password `admin`.
+2. Log in as user _admin_ with password _admin_.
 
 Solace CLI management access:
 
