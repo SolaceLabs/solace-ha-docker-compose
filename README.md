@@ -127,7 +127,7 @@ primary> enable
 primar# config
 primary(configure)#
 ```
-3. Issue configuration or monitoring commands. For a list of commands currently supported on the message broker, refer to [Solace Documentation - Solace CLI](https://docs.solace.com/Solace-CLI/Using-Solace-CLI.htm).
+3. Issue configuration or monitoring commands. For a list of commands currently supported on the message broker, refer to [Solace PubSub+ documentation - Solace CLI](https://docs.solace.com/Solace-CLI/Using-Solace-CLI.htm).
 <br><br>
 <a name="next-steps"></a>
 ## Next Steps
