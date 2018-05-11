@@ -2,6 +2,17 @@ Configure High-availability Groups Using Docker Compose
 =====
 This project provides instructions and tools to use Docker Compose to configure a High-availability (HA) redundancy group of Solace PubSub+ software message broker Docker containers. 
 <br><br>
+
+## Contents
+
+* [Before you being](#before-you-being)
+* [Step 1: Get a Software Message Broker](#get-message-broker) 
+* [Step 2: Download Docker Compose Template](#download-template) 
+* [Step 3: Run Docker Compose](#run-docker-compose) 
+* [Step 4: Manage the Container](#manage-container) 
+* [Next Steps](#next-steps) 
+<br><br>
+<a name="before-you-being"></a>
 ## Before you begin
 In the sample configuration below, we will use the Docker Compose template that is provided in this project, to set up an HA group. This sample configuration, which uses Solace PubSub+ Standard, is suitable for demonstrating and testing PubSub+ fundamentals, such as HA failover and guaranteed messaging, in non-production situations. The intent of the configuration is to help you become familiar with the ins-and-outs of HA set up as a step towards using more advanced, production-oriented configurations. 
 
@@ -33,6 +44,7 @@ The template contains the following two files:
 * Multi-Node Routing (MNR) is not supported at the 100 connection scaling tier. To use MNR, you must use the 1,000 connection scaling tier or higher.
 * Only bridge networking is supported.
 <br><br>
+<a name="get-message-broker"></a>
 ## Step 1: Get a Software Message Broker 
 
 First, you need to obtain a message broker Docker package, which is a compressed tar archive containing a message broker Docker repository consisting of a single  message broker Docker image. 
@@ -52,15 +64,17 @@ Once you have obtained a copy of the message broker package, you can upload it t
 
 In this example,  the compressed tar archive of Solace PubSub+ Standard has been uploaded to `Users/username/Downloads` directory. When loading is finished, you can check the image with the `docker images` command.
 <br><br>
+<a name="download-template"></a>
 ## Step 2: Download Docker Compose Template
 
-Clone the GitHub repository containing the Docker Compose template.
+Clone the repository and cd into the template folder. 
 ```
 > git clone https://github.com/SolaceDev/ha-quickstart-docker-compose
 > cd ha-quickstart-docker-compose/template
 ```
-Alternatively, you can also download the Zip file through the **Clone or download** tab. 
+You can also download the Zip file through the Clone or download tab.
 <br><br>
+<a name="run-docker-compose"></a>
 ## Step 3: Run Docker Compose
 
 Before running the docker-compose command, it's recommended that you execute `docker volume prune` to remove unused local volumes. This is recommended if you are setting up an HA group in a resource-limited environment such as a laptop with limited disk space.
@@ -89,6 +103,7 @@ lb          |  Assert master admin operation completed, attempt # 10
 
 The HA group will be up-and-running once the _Assert master admin operation_ is completed. You can check the status of the containers by executing the `docker ps` command. The status of all the four containers, primary, backup, monitoring, and lb, must be Up.
 <br><br>
+<a name="manage-container"></a>
 ## Step 4: Manage the Container
 You can access the Solace management tool, WebUI, or the Solace CLI to start issuing configuration or monitoring commands on the message broker.
 
@@ -112,6 +127,7 @@ primary(configure)#
 ```
 3. Issue configuration or monitoring commands. For a list of commands currently supported on the message broker, refer to [Solace Documentation - Solace CLI](https://docs.solace.com/Solace-CLI/Using-Solace-CLI.htm).
 <br><br>
+<a name="next-steps"></a>
 ## Next Steps
 At this point you have an HA redundancy group running on your platform and Guaranteed Messaging is enabled. You can now do things like use the SDKPerf tool to test messaging, perform administrative task using WebUI, or test the HA group’s failover operation.
 
