@@ -124,7 +124,7 @@ Solace CLI management access:
 2. Enter the following commands to enter configuration mode:
 ```
 primary> enable
-primar# config
+primary# config
 primary(configure)#
 ```
 3. Issue configuration or monitoring commands. For a list of commands currently supported on the message broker, refer to [Solace PubSub+ documentation - Solace CLI](https://docs.solace.com/Solace-CLI/Using-Solace-CLI.htm).
