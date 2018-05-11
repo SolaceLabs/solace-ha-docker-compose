@@ -59,7 +59,7 @@ Clone the GitHub repository containing the Docker Compose template.
 > git clone https://github.com/SolaceDev/ha-quickstart-docker-compose
 > cd ha-quickstart-docker-compose/template
 ```
-Alternatively, you can also download the Zip file through the clone or download tab. 
+Alternatively, you can also download the Zip file through the **Clone or download** tab. 
 <br><br>
 ## Step 3: Run Docker Compose
 
@@ -67,9 +67,9 @@ Before running the docker-compose command, it's recommended that you execute `do
 
 Run the following command to get the HA group up-and-running.
 
-<pre>
+```
 > $env:TAG="<docker-image-tag>"; docker-compose -f PubSub_Standard_HA.yml up
-</pre>
+```
 
 Where: `<docker-image-tag>` is the TAG number of the software message broker Docker image. You can check the TAG number using the `docker images` command.
 
