@@ -6,6 +6,9 @@ This project provides instructions and tools to use Docker Compose to configure 
 ## Contents
 
 * [Before you being](#before-you-being)
+  * [What you will need](#prerequisites)
+  * [Docker Compose](#docker-compose)
+  * [Limitations](#limitations)
 * [Step 1: Get a Software Message Broker](#get-message-broker) 
 * [Step 2: Download Docker Compose Template](#download-template) 
 * [Step 3: Run Docker Compose](#run-docker-compose) 
@@ -16,7 +19,7 @@ This project provides instructions and tools to use Docker Compose to configure 
 ## Before you begin
 In the sample configuration below, we will use the Docker Compose template that is provided in this project, to set up an HA group. This sample configuration, which uses Solace PubSub+ Standard, is suitable for demonstrating and testing PubSub+ fundamentals, such as HA failover and guaranteed messaging, in non-production situations. The intent of the configuration is to help you become familiar with the ins-and-outs of HA set up as a step towards using more advanced, production-oriented configurations. 
 
-
+<a name="prerequisites"></a>
 ### What you will need
 
 * If you are using macOS:
@@ -28,7 +31,7 @@ In the sample configuration below, we will use the Docker Compose template that 
 * A host machine with 8 GB RAM and 4 CPU cores with hyper-threading enabled (8 virtual cores) is recommended.
 * All software message broker Docker container images in the HA group must be the same: Solace PubSub+ 8.10 or higher.
 
-
+<a name="docker-compose"></a>
 ### Docker Compose
 The Docker Compose template allows you to get an HA group up-and-running using a single command. Once the command is executed, the template automatically creates all the necessary containers and configures the HA group. It also creates a load balancer, HAProxy, to check the health of the primary and backup message brokers. The load balancer monitors the health of the primary and standby message brokers, and based on the results of the health check, directs traffic to the active message broker. The diagram below illustrates the HA group setup fronted by a load balancer.
 
@@ -38,7 +41,7 @@ The template contains the following two files:
 * _PubSub_standard_HA.yml_ — The docker-compose script that creates the containers for the primary, backup, and monitoring nodes as well as a container for the load balancer. The script also contains configuration keys for setting up redundancy, which automatically get the HA group up-and-running.
 * _assertMaster.perl_ — A Perl script that creates the HAProxy load balancer configuration file, which is mapped to the load balancer container. Once the containers are created, the load balancer automatically executes the _Assert master admin operation_, which ensures that the configuration of the primary and backup message brokers are synchronized. For more information, refer to [Solace PubSub+ documentation - Asserting Message Broker System Configurations](https://docs.solace.com/Configuring-and-Managing-Routers/Using-Config-Sync.htm#Assertin).
 
-
+<a name="limitations"></a>
 ### Limitations
 * The following features are not supported: Replication, Docker Engine Swarm mode.
 * Multi-Node Routing (MNR) is not supported at the 100 connection scaling tier. To use MNR, you must use the 1,000 connection scaling tier or higher.
