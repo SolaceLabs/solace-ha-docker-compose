@@ -26,7 +26,7 @@ In the sample configuration below, we will use the Docker Compose template that 
 * If you are using Windows:
   * Windows Pro 10.
   * Windows PowerShell.
-* Docker installed, with at least 6 GiB of memory (4 GiB must be RAM) and 2 virtual cores dedicated to Docker. For this example, 4 GiB of RAM, 2 GiB of swap space, and 2 virtual cores have been dedicated to Docker for Mac. To learn about allocating memory and swap space, refer to the Docker Settings page for [Docker for Mac](https://docs.docker.com/docker-for-mac/#advanced) or [Docker for Windows](https://docs.docker.com/docker-for-windows/#advanced).
+* Docker installed, with at least 6 GiB of memory (4 GiB must be RAM) and 2 virtual cores dedicated to Docker. For this example, 4 GiB of RAM, 2 GiB of swap space, and 2 virtual cores have been dedicated to Docker. To learn about allocating memory and swap space, refer to the Docker Settings page for [Docker for Mac](https://docs.docker.com/docker-for-mac/#advanced) or [Docker for Windows](https://docs.docker.com/docker-for-windows/#advanced).
 * A host machine with 8 GB RAM and 4 CPU cores with hyper-threading enabled (8 virtual cores) is recommended.
 * All software message broker Docker container images in the HA group must be the same: Solace PubSub+ 8.10 or higher.
 
@@ -45,13 +45,13 @@ The template contains the following two files:
 
 First, you need to obtain a message broker Docker package, which is a compressed tar archive containing a message broker Docker repository consisting of a single  message broker Docker image. 
 
-**Solace PubSub+ Standard**: Go to [dev.solace.com/downloads](http://dev.solace.com/downloads/#vmr). Then select the Docker tile and choose  Standard. After you read and acknowledge the license agreement, an email will be sent to you with a download link to a compressed archive file called `solace-pubsub-standard-<version>-docker.tar.gz`.
+**Solace PubSub+ Standard**: Go to [dev.solace.com/downloads](http://dev.solace.com/downloads/#vmr). Then select the docker link from Solace PubSub+ Standard. You will be able to download a compressed archive file called `solace-pubsub-standard-<version>-docker.tar.gz`.
 
-**Solace PubSub+ Enterprise Evaluation Edition**: Go to the Downloads page of dev.solace.com. Then select the Docker tile and choose Enterprise Evaluation Edition. After you read and acknowledge the license agreement, an email will be sent to you with a download link to a compressed archive file called `solace-pubsub-evaluation-<version>-docker.tar.gz`.
+**Solace PubSub+ Enterprise Evaluation Edition**: Go to the Downloads page of dev.solace.com. Then select the docker link from Solace PubSub+ Enterprise Evaluation Edition. You will be able to download a compressed archive file called `solace-pubsub-evaluation-<version>-docker.tar.gz`.
 
 **Solace PubSub+ Enterprise**: If you have purchased a Docker image of Solace PubSub+ Enterprise, Solace will give you information for how to download the compressed tar archive package from a secure Solace server. Contact [Solace Support](https://solace.com/support) if you require assistance.
 
-Once you have obtained a copy of the message broker package, you can upload it to a directory on your host and load the image using these two steps:
+Once you have obtained Docker package, you can upload it to a directory on your host and load the image using these steps:
 1. Start Docker and open a terminal (PowerShell for Windows). 
 2. Load the image:
 ```
