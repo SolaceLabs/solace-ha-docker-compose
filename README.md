@@ -47,7 +47,7 @@ First, you need to obtain a message broker Docker package, which is a compressed
 
 **Solace PubSub+ Standard**: Go to [dev.solace.com/downloads](http://dev.solace.com/downloads/#vmr). Then select the docker link from Solace PubSub+ Standard. You will be able to download a compressed archive file called `solace-pubsub-standard-<version>-docker.tar.gz`.
 
-**Solace PubSub+ Enterprise Evaluation Edition**: Go to the Downloads page of dev.solace.com. Then select the docker link from Solace PubSub+ Enterprise Evaluation Edition. You will be able to download a compressed archive file called `solace-pubsub-evaluation-<version>-docker.tar.gz`.
+**Solace PubSub+ Enterprise Evaluation Edition**: Go to [dev.solace.com/downloads](http://dev.solace.com/downloads/#vmr). Then select the docker link from Solace PubSub+ Enterprise Evaluation Edition. You will be able to download a compressed archive file called `solace-pubsub-evaluation-<version>-docker.tar.gz`.
 
 **Solace PubSub+ Enterprise**: If you have purchased a Docker image of Solace PubSub+ Enterprise, Solace will give you information for how to download the compressed tar archive package from a secure Solace server. Contact [Solace Support](https://solace.com/support) if you require assistance.
 
