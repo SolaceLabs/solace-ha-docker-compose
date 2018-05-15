@@ -32,7 +32,7 @@ In the sample configuration below, we will use the Docker Compose template that 
 
 <a name="docker-compose"></a>
 ### Docker Compose
-The Docker Compose template allows you to get an HA group up-and-running using a single command. Once the command is executed, the template automatically creates all the necessary containers and configures the HA group. It also creates a load balancer, HAProxy, to check the health of the primary and backup message brokers. The load balancer monitors the health of the primary and standby message brokers, and based on the results of the health check, directs traffic to the active message broker. The diagram below illustrates the HA group setup fronted by a load balancer.
+The Docker Compose template allows you to get an HA group up-and-running using a single command. Once the command is executed, the template automatically creates all the necessary containers and configures the HA group. It also creates a HAProxy load balancer, HAProxy. The load balancer monitors the health of the primary and standby message brokers, and based on the results of the health check, directs traffic to the active message broker. The diagram below illustrates the HA group setup fronted by a load balancer.
 
 ![](images/LoadBalancer_HATriplet.png)
 
