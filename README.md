@@ -5,7 +5,7 @@ This project provides instructions and tools to use Docker Compose to configure 
 
 ## Contents
 
-* [Before you being](#before-you-being)
+* [Before you begin](#before-you-begin)
   * [Assumptions](#prerequisites)
   * [Docker Compose](#docker-compose)
 * [Step 1: Get a Software Message Broker](#get-message-broker) 
@@ -14,7 +14,7 @@ This project provides instructions and tools to use Docker Compose to configure 
 * [Step 4: Manage the Container](#manage-container) 
 * [Next Steps](#next-steps) 
 <br><br>
-<a name="before-you-being"></a>
+<a name="before-you-begin"></a>
 ## Before you begin
 In the sample configuration below, we will use the Docker Compose template that is provided in this project, to set up an HA group. This sample configuration, which uses [Solace PubSub+ Standard](https://docs.solace.com/Solace-SW-Broker-Set-Up/Setting-Up-SW-Brokers.htm#Compare), is suitable for demonstrating and testing PubSub+ fundamentals, such as HA failover and guaranteed messaging, in non-production situations. The intent of the configuration is to help you become familiar with the ins-and-outs of HA set up as a step towards using more advanced, production-oriented configurations. 
 
