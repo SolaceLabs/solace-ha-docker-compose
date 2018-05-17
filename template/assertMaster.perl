@@ -91,7 +91,7 @@ global
 defaults
   balance roundrobin
   log global
-  mode http
+  mode tcp
   option redispatch
   option dontlognull
   timeout connect 5000
@@ -114,7 +114,9 @@ my $frontEndConfig = <<'FRONT_END_CONFIG';
 frontend semp_in
   bind *:8080
   default_backend semp_servers
+  mode http
 backend semp_servers
+  mode http
   option httpchk GET /health-check/direct-active
   http-check expect status 200
   default-server inter 3s fall 3 rise 2 
