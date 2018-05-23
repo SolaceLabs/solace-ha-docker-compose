@@ -119,7 +119,7 @@ Solace CLI management access:
 1. Enter the following docker exec command to access the Solace CLI on the primary message broker:
 
 ```
-> docker exec -it primary cli
+> docker exec -it primary /usr/sw/loads/currentload/bin/cli -A
 ```
 2. Enter the following commands to enter configuration mode:
 ```
