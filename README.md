@@ -65,8 +65,8 @@ In this example,  the compressed tar archive of Solace PubSub+ Standard has been
 
 Clone the repository and cd into the template folder. 
 ```
-> git clone https://github.com/SolaceLabs/ha-quickstart-docker-compose
-> cd ha-quickstart-docker-compose/template
+> git clone https://github.com/SolaceLabs/solace-ha-docker-compose.git
+> cd solace-ha-docker-compose/template
 ```
 You can also download the Zip file through the Clone or download tab.
 <br><br>
