@@ -19,7 +19,7 @@ x-environment:
   
 x-common:
   &default-common
-  image: solace-pubsub-standard:${TAG:-latest}
+  image: solace/solace-pubsub-standard:${TAG:-latest}
   shm_size: 1g
   ulimits:
     core: 1
