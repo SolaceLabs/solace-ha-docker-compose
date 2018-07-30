@@ -27,7 +27,7 @@ In the sample configuration below, we will use the Docker Compose template that 
   * Windows PowerShell.
 * Docker installed, with at least 6 GiB of memory (4 GiB must be RAM) and 2 virtual cores dedicated to Docker. For this example, 4 GiB of RAM, 2 GiB of swap space, and 2 virtual cores have been dedicated to Docker. To learn about allocating memory and swap space, refer to the Docker Settings page for [Docker for Mac](https://docs.docker.com/docker-for-mac/#advanced) or [Docker for Windows](https://docs.docker.com/docker-for-windows/#advanced).
 * A host machine with 8 GB RAM and 4 CPU cores with hyper-threading enabled (8 virtual cores) is recommended.
-* All software message broker Docker container images in the HA group must be the same: Solace PubSub+ 8.10 or higher.
+* All software message broker Docker container images in the HA group must be the same: Solace PubSub+ 8.11 or higher.
 
 <a name="docker-compose"></a>
 ### Docker Compose
@@ -104,6 +104,7 @@ primary(configure)#
 ## Next Steps
 At this point you have an HA redundancy group running on your platform and Guaranteed Messaging is enabled. You can now do things like use the SDKPerf tool to test messaging, perform administrative task using WebUI, or test the HA group’s failover operation.
 
+* [PubSub+ Manager](https://docs.solace.com/Solace-PubSub-Manager/PubSub-Manager-Overview.htm) — Use the Solace WebUI to administer the HA group.
 * [Download SDKPerf](http://dev.solace.com/downloads/#apis-protocols-tools) — To get started, see SDKPerf's [Quick Start guide](https://docs.solace.com/SDKPerf/SDKPerf.htm#Quick).
 * [Validate Failover](https://docs.solace.com/Configuring-and-Managing/Configuring-HA-Groups.htm#Validate-Failover) — Learn to validate the HA group’s failover operation
-* [PubSub+ Manager](https://docs.solace.com/Solace-PubSub-Manager/PubSub-Manager-Overview.htm) — Use the Solace WebUI to administer the HA group.
+
