@@ -130,7 +130,7 @@ print $fh $frontEndConfig;
 print $fh "  server $primaryName $primaryName:8080 check port 5550\n";
 print $fh "  server $backupName $backupName:8080 check port 5550\n\n";
 
-addHaProxyListen($fh, 'semp_tls_in',       943);
+addHaProxyListen($fh, 'semp_tls_in',       1943);
 addHaProxyListen($fh, 'smf_in',            55555);
 addHaProxyListen($fh, 'smf_compressed_in', 55003);
 addHaProxyListen($fh, 'smf_tls_in',        55443);
