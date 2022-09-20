@@ -22,7 +22,7 @@ x-common:
   image: solace/solace-pubsub-standard:${TAG:-latest}
   shm_size: 1g
   ulimits:
-    core: 1
+    core: -1
     nofile:
       soft: 2448
       hard: 38048
@@ -36,6 +36,8 @@ services:
     hostname: primary
     ports:
       - "212:2222"
+    volumes:
+      - storage-group-1:/var/lib/solace
     environment: 
       << : *default-environment
       routername: primary
@@ -50,6 +52,8 @@ services:
     hostname: backup
     ports:
       - "312:2222"
+    volumes:
+      - storage-group-2:/var/lib/solace
     environment:
       << : *default-environment
       routername: backup
@@ -64,6 +68,8 @@ services:
     hostname: monitoring
     ports:
       - "412:2222"
+    volumes:
+      - storage-group-3:/var/lib/solace
     environment:
       << : *default-environment
       routername: monitoring
@@ -74,6 +80,7 @@ services:
   lb:
     container_name: lb
     image: 'haproxy:latest'
+    user: 0:0
     volumes:
       - ./assertMaster.perl:/assertMaster.perl
     environment:
@@ -96,9 +103,14 @@ services:
       - '8883:8883'
       - '9000:9000'
       - '9443:9443'
-      - '55555:55555'
+      - '55554:55555'
       - '55003:55003'
       - '55443:55443'
       - '1936:1936'
     networks:
       - hanet
+
+volumes:
+  storage-group-1:
+  storage-group-2:
+  storage-group-3:
