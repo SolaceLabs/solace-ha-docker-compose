@@ -81,7 +81,6 @@ services:
     container_name: lb
     image: 'haproxy:latest'
     user: 0:0
-    user: 0:0
     volumes:
       - ./assertMaster.perl:/assertMaster.perl
     environment:
