@@ -36,8 +36,9 @@ The Docker Compose template allows you to get an HA group up-and-running using a
 ![](images/LoadBalancer_HATriplet.png)
 
 The template contains the following two files:
-* _PubSub_standard_HA.yml_ — The docker-compose script that creates the containers for the primary, backup, and monitoring nodes as well as a container for the load balancer. The script also contains configuration keys for setting up redundancy, which automatically get the HA group up-and-running.
+* _PubSub_Standard_HA.yml_ — The docker-compose script that creates the containers for the primary, backup, and monitoring nodes as well as a container for the load balancer. The script also contains configuration keys for setting up redundancy, which automatically get the HA group up-and-running.
 * _assertMaster.perl_ — A Perl script that creates the HAProxy load balancer configuration file, which is mapped to the load balancer container. Once the containers are created, the load balancer automatically executes the _Assert master admin operation_, which ensures that the configuration of the primary and backup message brokers are synchronized. For more information, refer to [Solace PubSub+ documentation - Asserting Message Broker System Configurations](https://docs.solace.com/Configuring-and-Managing-Routers/Using-Config-Sync.htm#Assertin).
+Note: If using a version older than 9.2, the docker-compose script PubSub_Standard_HA_Pre_9_2.YML should be used instead of PubSub_Standard_HA.YML. This docker-compose script uses redundancy group password instead of a pre-shared authentication key. Pre-shared authentication keys are highly recommended when using versions 9.2 and above.
 <br><br>
 <a name="download-template"></a>
 ## Step 1: Download Docker Compose Template
