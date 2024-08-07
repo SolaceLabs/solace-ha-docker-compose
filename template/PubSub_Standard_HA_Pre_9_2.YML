@@ -83,7 +83,7 @@ services:
     image: 'haproxy:latest'
     user: 0:0
     volumes:
-      - ./assertMaster.perl:/assertMaster.perl
+      - ./assertLeader.perl:/assertLeader.perl
     environment:
       ADMIN_USERNAME: admin
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
