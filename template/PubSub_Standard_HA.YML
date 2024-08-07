@@ -2,7 +2,7 @@ version: '2.1'
 
 networks:
   hanet: {}
-  
+
 x-environment:
   &default-environment
   username_admin_globalaccesslevel: admin
@@ -16,7 +16,7 @@ x-environment:
   redundancy_group_node_backup_nodetype: message_routing
   redundancy_group_node_monitoring_connectvia: monitoring
   redundancy_group_node_monitoring_nodetype: monitoring
-  
+
 x-common:
   &default-common
   image: solace/solace-pubsub-standard:${TAG:-latest}
@@ -38,7 +38,7 @@ services:
       - "212:2222"
     volumes:
       - storage-group-1:/var/lib/solace
-    environment: 
+    environment:
       << : *default-environment
       routername: primary
       configsync_enable: "yes"
@@ -82,14 +82,14 @@ services:
     image: 'haproxy:latest'
     user: 0:0
     volumes:
-      - ./assertMaster.perl:/assertMaster.perl
+      - ./assertLeader.perl:/assertLeader.perl
     environment:
       ADMIN_USERNAME: admin
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
     entrypoint:
       - /bin/bash
       - "-c"
-      - "perl /assertMaster.perl"
+      - "perl /assertLeader.perl"
     ports:
       - '8008:8008'
       - '1443:1443'
