@@ -1,23 +1,23 @@
-# This file is for broker versions 9.2 and above
+# This file is for broker versions before 9.2
 version: '2.1'
 
 networks:
   hanet: {}
-
+  
 x-environment:
   &default-environment
   username_admin_globalaccesslevel: admin
   username_admin_password: ${ADMIN_PASSWORD:-admin}
   system_scaling_maxconnectioncount: 100
   redundancy_enable: "yes"
-  redundancy_authentication_presharedkey_key: 'JM2gWU1wU9563gzDYjO3jFA9UJO9QhYVN7SAOFqfGAk='
+  redundancy_group_password: topsecret
   redundancy_group_node_primary_connectvia: primary
   redundancy_group_node_primary_nodetype: message_routing
   redundancy_group_node_backup_connectvia: backup
   redundancy_group_node_backup_nodetype: message_routing
   redundancy_group_node_monitoring_connectvia: monitoring
   redundancy_group_node_monitoring_nodetype: monitoring
-
+  
 x-common:
   &default-common
   image: solace/solace-pubsub-standard:${TAG:-latest}
@@ -39,7 +39,7 @@ services:
       - "212:2222"
     volumes:
       - storage-group-1:/var/lib/solace
-    environment:
+    environment: 
       << : *default-environment
       routername: primary
       configsync_enable: "yes"
@@ -90,7 +90,7 @@ services:
     entrypoint:
       - /bin/bash
       - "-c"
-      - "perl /assertLeader.perl"
+      - "perl /assertMaster.perl"
     ports:
       - '8008:8008'
       - '1443:1443'

@@ -60,7 +60,7 @@ sub post {
     #print "received response: $response\n";
     
     $socket->close();    
-    return ($response =~ /200 OK/);
+    return ($response =~ /200 OK/ && $response =~ /execute-result code="ok"/);
 }
 
 sub addHaProxyListen {
@@ -177,29 +177,48 @@ if ($pid == 0) {
     die "could not fork to start haproxy";
 }
 
-# assert master on active message broker if not one once before
-my $filename = '/assert_master_done.txt';
+# assert leader on active message broker if not one once before
+my $filename = '/assert_leader_done.txt';
 if (-e $filename) {
-    print "Assert master already complete\n";
+    print "Assert leader already complete\n";
 } else {
+    my $done = 0;
+    my $allSuccess = 1;
+    do {
+        $attemptCount += 1;
+        $done = post("127.0.0.1",8080,
+                     '/SEMP', 
+                     '<rpc>' .
+                     '<admin><config-sync>' .
+                     '<assert-leader><router></router></assert-leader>' .
+                     '</config-sync></admin>' .
+                     '</rpc>');
+        if ($done) {
+            print "Assert leader admin operation completed, attempt # $attemptCount\n";
+        } else {
+            sleep(5);
+        }
+    } while (!$done);
     my $done = 0;
     do {
         $attemptCount += 1;
         $done = post("127.0.0.1",8080,
                      '/SEMP', 
-                     '<rpc semp-version="soltr/8_10VMR">' .
+                     '<rpc>' .
                      '<admin><config-sync>' .
-                     '<assert-master><router></router></assert-master>' .
+                     '<assert-leader><vpn-name>*</vpn-name></assert-leader>' .
                      '</config-sync></admin>' .
                      '</rpc>');
         if ($done) {
-            print "Assert master admin operation completed, attempt # $attemptCount\n";
-            open TMPFILE, '>', $filename and close TMPFILE
-            or die "File error with $filename: $!";
+            print "Assert leader vpn admin operation completed, attempt # $attemptCount\n";
         } else {
             sleep(5);
         }
     } while (!$done);
+    if ($allSuccess) {
+        open TMPFILE, '>', $filename and close TMPFILE
+        or die "File error with $filename: $!";
+    }
 }
 
 while (wait() != -1) {}
